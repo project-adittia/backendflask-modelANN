@@ -9,16 +9,16 @@ app = Flask(__name__)
 model = keras.models.load_model("model0001_2hl18n_5.h5")
 
 
-@app.route("/predict", methods=["POST"])
-def predict():
-    event = json.loads(request.data)
-    values = event["datas"]
-    values = list(map(float, values))
-    pre = np.array(values)
-    pre = pre.reshape(1, -1)
-    res = model.predict(pre)
-    print("ini hasil prediksi lewat API", res)
-    return str(res[0])
+# @app.route("/predict", methods=["POST"])
+# def predict():
+#     event = json.loads(request.data)
+#     values = event["datas"]
+#     values = list(map(float, values))
+#     pre = np.array(values)
+#     pre = pre.reshape(1, -1)
+#     res = model.predict(pre)
+#     print("ini hasil prediksi lewat API", res)
+#     return str(res[0])
 
 
 @app.route("/predict-taksasi", methods=["POST"])
